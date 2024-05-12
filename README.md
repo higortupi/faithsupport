@@ -4,11 +4,11 @@ Um projeto feito por Higor Tupinambá
 
 ## 🚀 Começando
 
-Projeto acadêmico do primeiro semestre da faculdade SPTECH, uma bíblia online com um sistema de dashboard para devocionais.;
+Projeto acadêmico do primeiro semestre da faculdade SPTECH, uma bíblia online com um sistema de dashboard para devocionais.
 
 ## 📋 Resultados Esperados
 
-O projeto tem como resultado esperado, incentivar a leitura da bíblia e promover um crescimento espiritual dos seus usuários. ;<br>
+O projeto tem como resultado esperado, incentivar a leitura da bíblia e promover um crescimento espiritual dos seus usuários. <br>
 
 ## 🛠️ Construído com:
 
