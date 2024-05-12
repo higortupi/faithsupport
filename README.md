@@ -22,6 +22,6 @@ O projeto tem como resultado esperado, incentivar a leitura da bíblia e promove
 
 ## 🖇️ Colaboradores
 
-Higor Tupinambá: <a href="https://github.com/higortupi/karpostech" target="_blank"><img align="center" height="30" width="40" alt="logo GitHub" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+Higor Tupinambá: <a href="https://github.com/higortupi" target="_blank"><img align="center" height="30" width="40" alt="logo GitHub" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
 </a>
 
