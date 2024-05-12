@@ -2,90 +2,231 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Faith Support | Bíblia Sagrada</title>
+  <title>Faith Support | Bíblia Sagrada</title>
 
-    <script src="./js/sessao.js"></script>
+  <script src="./js/sessao.js"></script>
 
-    <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="icon" href="../public/assets/imgs/9836117.png">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="./css/estilo.css">
+  <link rel="icon" href="../public/assets/imgs/9836117.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
 </head>
 
 <body>
 
-    <!--header inicio-->
-    <div class="header">
-        <div class="container">
-            <a href="index.html">
-                <h1 class="titulo">Faith Support</h1>
-            </a>
-          <ul class="navbar">
-            <li class="agora">
-              <a href="index.html">Sobre nós</a>
-            </li>
-            <li class="agora">
-              <a href="#">Versículo diário</a>
-            </li>
-            <li class="agora">
-              <a href="#">Ajuda</a>
-            </li>
-            <li>
-              <a href="simulador.html">Bíblia Sagrada</a>
-            </li>
-            <li>|</li>
-            <li>
-              <a href="login.html" id="btn-login">Login</a>
-            </li>
-            <li>
-              <a href="cadastro.html" id="btn-cadastrar">Cadastrar-se</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-
-    <!-- simulador inicio -->
-    <div class="simulador">
-        <div class="container">
-            <h2>Bíblia Sagrada</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium tempora architecto sint fugit
-                dolorum? Ipsum laborum magnam similique labore, voluptate amet reprehenderit rem ab blanditiis quisquam
-                laboriosam eaque alias. Reiciendis. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Accusantium tempora architecto sint fugit dolorum? Ipsum laborum magnam similique labore, voluptate amet
-                reprehenderit rem ab blanditiis quisquam laboriosam eaque alias. Reiciendis.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium tempora architecto sint fugit
-                dolorum? Ipsum laborum magnam similique labore, voluptate amet reprehenderit rem ab blanditiis quisquam
-                laboriosam eaque alias. Reiciendis. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Accusantium tempora architecto sint fugit dolorum? Ipsum laborum magnam similique labore, voluptate amet
-                reprehenderit rem ab blanditiis quisquam laboriosam eaque alias. Reiciendis.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium tempora architecto sint fugit
-                dolorum? Ipsum laborum magnam similique labore, voluptate amet reprehenderit rem ab blanditiis quisquam
-                laboriosam eaque alias. Reiciendis. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Accusantium tempora architecto sint fugit dolorum? Ipsum laborum magnam similique labore, voluptate amet
-                reprehenderit rem ab blanditiis quisquam laboriosam eaque alias. Reiciendis.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium tempora architecto sint fugit
-                dolorum? Ipsum laborum magnam similique labore, voluptate amet reprehenderit rem ab blanditiis quisquam
-                laboriosam eaque alias. Reiciendis. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Accusantium tempora architecto sint fugit dolorum? Ipsum laborum magnam similique labore, voluptate amet
-                reprehenderit rem ab blanditiis quisquam laboriosam eaque alias. Reiciendis.</p>
-
-        </div>
+  <!--header inicio-->
+  <div class="header">
+    <div class="container">
+      <a href="index.html">
+        <h1 class="titulo">Faith Support</h1>
+      </a>
+      <ul class="navbar">
+        <li class="agora">
+          <a href="index.html">Sobre nós</a>
+        </li>
+        <li class="agora">
+          <a href="#">Versículo diário</a>
+        </li>
+        <li class="agora">
+          <a href="#">Ajuda</a>
+        </li>
+        <li>
+          <a href="simulador.html">Bíblia Sagrada</a>
+        </li>
+        <li>|</li>
+        <li>
+          <a href="login.html" id="btn-login">Login</a>
+        </li>
+        <li>
+          <a href="cadastro.html" id="btn-cadastrar">Cadastrar-se</a>
+        </li>
+      </ul>
     </div>
-    <!-- simulador fim -->
+  </div>
 
-    <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2024</h4>
-        </div>
+
+  <!-- simulador inicio -->
+  <div class="simulador">
+    <div class="container">
+      <h2>Bíblia Sagrada</h2>
+      <p>Selecione um livro da bíblia sagrada</p>
+      <select id="livros" class="select2"></select>
+
+      <p>Selecione o capítulo</p>
+
+      <select id="capitulos" class="select2"></select>
+      <p>Selecione o versículo</p>
+
+      <input type="number" id="versiculo" min="1" max="150">
+
+      <p id="versiculoSelecionado"></p>
     </div>
-    <!--footer fim-->
+  </div>
+  <!-- simulador fim -->
 
+  <!--footer inicio-->
+  <div class="footer">
+    <div class="container">
+      <h4>Feito com amor por Higor Tupinambá &hearts; SPTech &copy; 2024</h4>
+      <h4>Feito com amor por Higor Tupinambá &hearts; SPTech &copy; 2024</h4>
+    </div>
+  </div>
+  <!--footer fim-->
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 </body>
 
 </html>
+
+
+<script>
+  $(document).ready(function () {
+    const apiUrl = "https://www.abibliadigital.com.br/api/books";
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHIiOiJUaHUgTWF5IDA5IDIwMjQgMTU6NTQ6MTEgR01UKzAwMDAubGVvdmFzYzVAaG90bWFpbC5jb20iLCJpYXQiOjE3MTUyNzAwNTF9.UltHF5RJ9JiNlhFQKS_FCH02I6A6zteMtehh8iuJpuA";
+
+    // Função para carregar os capítulos
+    function carregarCapitulos(livroAbbrev) {
+      const capitulosSelect = document.getElementById('capitulos');
+      capitulosSelect.innerHTML = '';
+
+      fetch(`https://www.abibliadigital.com.br/api/verses/nvi/${livroAbbrev}`, {
+        method: "GET",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}` // Inclua o token aqui
+        }
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Nenhum capítulo encontrado.');
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data && data.length > 0) {
+            for (let i = 1; i <= data.length; i++) {
+              const option = document.createElement('option');
+              option.value = i;
+              option.textContent = i;
+              capitulosSelect.appendChild(option);
+            }
+            $('#capitulos').trigger('change'); // Dispara o evento de mudança para carregar os versículos do primeiro capítulo
+          } else {
+            throw new Error('Nenhum capítulo encontrado.');
+          }
+        })
+        .catch(error => {
+          console.error('Erro ao obter os capítulos:', error);
+          const option = document.createElement('option');
+          option.textContent = 'Nenhum resultado encontrado';
+          capitulosSelect.appendChild(option);
+        });
+    }
+
+    // Função para carregar os versículos
+    function carregarVersiculos(livroAbbrev, capitulo) {
+      const versiculosSelect = document.getElementById('versiculos');
+      versiculosSelect.innerHTML = '';
+
+      fetch(`https://www.abibliadigital.com.br/api/verses/nvi/${livroAbbrev}/${capitulo}`, {
+        method: "GET",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}` // Inclua o token aqui
+        }
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Nenhum versículo encontrado.');
+          }
+          return response.json();
+        })
+        .then(data => {
+          for (let i = 1; i <= data.length; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i;
+            versiculosSelect.appendChild(option);
+          }
+        })
+        .catch(error => {
+          console.error('Erro ao obter os versículos:', error);
+          const option = document.createElement('option');
+          option.textContent = 'Nenhum resultado encontrado';
+          versiculosSelect.appendChild(option);
+        });
+    }
+
+    // Função para mostrar o versículo selecionado
+    function mostrarVersiculo(livroAbbrev, capitulo, versiculo) {
+      fetch(`https://www.abibliadigital.com.br/api/verses/nvi/${livroAbbrev}/${capitulo}/${versiculo}`, {
+        method: "GET",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}` // Inclua o token aqui
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          const versiculoSelecionado = document.getElementById('versiculoSelecionado');
+          versiculoSelecionado.textContent = `${data.text}`;
+        })
+        .catch(error => console.error('Erro ao obter o versículo:', error));
+    }
+
+    // Fetch dos dados da API para os livros
+    fetch(apiUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Erro ao obter os dados da API.');
+        }
+        return response.json();
+      })
+      .then(data => {
+        const livrosSelect = document.getElementById('livros');
+
+        // Itera sobre os dados e cria as options para os livros
+        data.forEach(livro => {
+          const option = document.createElement('option');
+          option.value = livro.abbrev.pt;
+          option.textContent = livro.name;
+          livrosSelect.appendChild(option);
+        });
+
+        // Quando o livro for selecionado, carregar os capítulos
+        $('#livros').on('change', function () {
+          const livroAbbrev = this.value;
+          carregarCapitulos(livroAbbrev);
+        });
+
+        // Quando o capítulo for selecionado, carregar os versículos
+        $('#capitulos').on('change', function () {
+          const livroAbbrev = $('#livros').val();
+          const capitulo = this.value;
+          carregarVersiculos(livroAbbrev, capitulo);
+        });
+
+        // Quando o versículo for selecionado, mostrar o versículo
+        $('#versiculos').on('change', function () {
+          const livroAbbrev = $('#livros').val();
+          const capitulo = $('#capitulos').val();
+          const versiculo = this.value;
+          mostrarVersiculo(livroAbbrev, capitulo, versiculo);
+        });
+
+        // Inicializar o Select2 para todos os selects
+        $('.select2').select2();
+      })
+      .catch(error => console.error('Erro ao obter os dados da API:', error));
+  });
+
+
+</script>

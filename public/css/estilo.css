@@ -7,8 +7,8 @@ body {
   background-image: url(../assets/imgs/luis-alberto-sanchez-terrones-7cTsvt25GuY-unsplash.jpg);
   background-size: 100vw;
   background-repeat: no-repeat;
-  
-  
+
+
 }
 
 :root {
@@ -43,7 +43,7 @@ body {
   color: #fff;
   white-space: nowrap;
   margin: 0 36px;
-  
+
 }
 
 .agora {
@@ -100,8 +100,10 @@ body {
 }
 
 .banner .container button {
-  margin-top: 20px; /* Adicionando margem acima do botão */
+  margin-top: 20px;
+  /* Adicionando margem acima do botão */
 }
+
 .banner .container span {
   font-weight: 800;
 }
@@ -111,7 +113,7 @@ body {
 .social {
   display: flex;
   background-color: #e5e5e5;
-  
+
 }
 
 .social .container {
@@ -152,9 +154,9 @@ body {
 /* FOOTER */
 
 .footer {
-  background-color: #0693e3;
+  background-color: #ffffff;
   height: 150px;
-  color: #fff;
+  color: #000000;
   display: flex;
   font-size: 15px;
 }
@@ -416,7 +418,7 @@ input {
   cursor: pointer;
 }
 
-#btn-cadastrar{
+#btn-cadastrar {
   width: 192px;
   height: 48px;
   border: 0;
@@ -424,23 +426,27 @@ input {
   font-weight: 600;
   font-size: 18px;
   color: #fff;
-  background-color: rgba(255, 255, 255, 0.1); /* Cor de fundo com fill de 10 */
-  backdrop-filter: blur(24px); /* Efeito de desfoque */
+  background-color: rgba(255, 255, 255, 0.1);
+  /* Cor de fundo com fill de 10 */
+  backdrop-filter: blur(24px);
+  /* Efeito de desfoque */
   cursor: pointer;
-  
+
 }
 
-#btn-login{
-    width: 192px;
-    height: 48px;
-    border: 0;
-    border-radius: 100px;
-    font-weight: 600;
-    font-size: 18px;
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.1); /* Cor de fundo com fill de 10 */
-    backdrop-filter: blur(24px); /* Efeito de desfoque */
-    cursor: pointer;
+#btn-login {
+  width: 192px;
+  height: 48px;
+  border: 0;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  /* Cor de fundo com fill de 10 */
+  backdrop-filter: blur(24px);
+  /* Efeito de desfoque */
+  cursor: pointer;
 
 }
 
@@ -486,12 +492,14 @@ input {
 
 .linha-vertical {
   border-left: 2px solid #fff;
-  height: 80%; /* Altura ajustável */
+  height: 80%;
+  /* Altura ajustável */
 }
 
 /* Adicione este estilo para a altura do conteúdo */
 .conteudo {
-  height: 80%; /* Altura ajustável */
+  height: 80%;
+  /* Altura ajustável */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -500,8 +508,11 @@ input {
 }
 
 /* Adicione este estilo para o espaçamento entre os elementos */
-.texto-esquerda, .linha-vertical, .texto-direita {
-  margin: 0 20px; /* Espaçamento ajustável */
+.texto-esquerda,
+.linha-vertical,
+.texto-direita {
+  margin: 0 20px;
+  /* Espaçamento ajustável */
 }
 
 /* Adicione este estilo para a borda superior e inferior da linha vertical */
@@ -511,7 +522,14 @@ input {
 }
 
 /* Adicione este estilo para centralizar verticalmente o texto */
-.texto-esquerda, .texto-direita {
+.texto-esquerda,
+.texto-direita {
   display: flex;
   align-items: center;
+}
+
+#versiculoSelecionado {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  margin-top: 20px;
 }
