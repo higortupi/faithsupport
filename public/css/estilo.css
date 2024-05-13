@@ -4,10 +4,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
-  background-image: url(../assets/imgs/luis-alberto-sanchez-terrones-7cTsvt25GuY-unsplash.jpg);
+  background-image: url(../assets/imgs/luxa.org-opacity-changed-luis-alberto-sanchez-terrones-7cTsvt25GuY-unsplash.jpg);
   background-size: 100vw;
   background-repeat: no-repeat;
 
+  
 
 }
 
@@ -154,21 +155,65 @@ body {
 /* FOOTER */
 
 .footer {
-  background-color: #ffffff;
-  height: 150px;
-  color: #000000;
-  display: flex;
-  font-size: 15px;
+  background-color: #e5e5e5;
+  color: #000000; /* Texto preto */
+  padding: 20px 0;
+  
 }
 
 .footer .container {
-  justify-content: center;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
 }
 
-.footer .container .version {
-  font-size: 12px;
+.footer-left, .footer-middle, .footer-right {
+  flex: 1;
+  text-align: left;
 }
+
+.footer-title {
+  font-size: 21px;
+  font-weight: bold;
+  margin-bottom: 10px; /* Espaço entre o título e o conteúdo */
+}
+
+.footer-subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px; /* Espaço entre o título e a lista */
+}
+
+.footer-list {
+  list-style-type: none; /* Removendo os pontos da lista */
+  padding: 0;
+}
+
+.footer-list li {
+  margin-bottom: 5px; /* Espaço entre os itens da lista */
+}
+
+.footer-list a {
+  color: #000000; /* Cor do texto preto */
+  text-decoration: none; /* Removendo sublinhado */
+}
+
+.footer a {
+  color: #000; /* Defina a cor desejada para os links */
+  text-decoration: none; /* Remova o sublinhado dos links */
+}
+
+ ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.companhia-info {
+  font-size: 16px;
+  font-weight: normal; /* Fonte light */
+}
+
+
+
 
 /* LOGIN */
 
@@ -408,7 +453,7 @@ input {
   }
 }
 
-#buttonBiblia {
+#buttonVersiculo {
   width: 247px;
   height: 60px;
   border: #fff 1px solid;
@@ -416,6 +461,7 @@ input {
   background-color: transparent;
   color: white;
   cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 #btn-cadastrar {
@@ -532,4 +578,44 @@ input {
   font-family: Arial, sans-serif;
   font-size: 18px;
   margin-top: 20px;
+}
+
+.versiculos-diarios {
+  background-color: #221d18;
+  color: #fff;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.versiculo-diario-conteudo {
+  margin-top: 20px;
+}
+
+#versiculo-texto {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#versiculo-referencia {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+#buttonVersiculo {
+  margin-top: 30px;
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  background-color: #fff;
+  color: #43382A;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, opacity 0.3s; /* Adicionando a transição de opacidade */
+  opacity: 0.7; /* Definindo a opacidade inicial */
+}
+
+#buttonVersiculo:hover {
+  background-color: #fff2e6;
 }
