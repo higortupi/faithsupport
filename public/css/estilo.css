@@ -8,7 +8,7 @@ body {
   background-size: 100vw;
   background-repeat: no-repeat;
 
-  
+
 
 }
 
@@ -156,9 +156,10 @@ body {
 
 .footer {
   background-color: #e5e5e5;
-  color: #000000; /* Texto preto */
+  color: #000000;
+  /* Texto preto */
   padding: 20px 0;
-  
+
 }
 
 .footer .container {
@@ -166,7 +167,9 @@ body {
   justify-content: space-between;
 }
 
-.footer-left, .footer-middle, .footer-right {
+.footer-left,
+.footer-middle,
+.footer-right {
   flex: 1;
   text-align: left;
 }
@@ -174,42 +177,51 @@ body {
 .footer-title {
   font-size: 21px;
   font-weight: bold;
-  margin-bottom: 10px; /* Espaço entre o título e o conteúdo */
+  margin-bottom: 10px;
+  /* Espaço entre o título e o conteúdo */
 }
 
 .footer-subtitle {
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 10px; /* Espaço entre o título e a lista */
+  margin-bottom: 10px;
+  /* Espaço entre o título e a lista */
 }
 
 .footer-list {
-  list-style-type: none; /* Removendo os pontos da lista */
+  list-style-type: none;
+  /* Removendo os pontos da lista */
   padding: 0;
 }
 
 .footer-list li {
-  margin-bottom: 5px; /* Espaço entre os itens da lista */
+  margin-bottom: 5px;
+  /* Espaço entre os itens da lista */
 }
 
 .footer-list a {
-  color: #000000; /* Cor do texto preto */
-  text-decoration: none; /* Removendo sublinhado */
+  color: #000000;
+  /* Cor do texto preto */
+  text-decoration: none;
+  /* Removendo sublinhado */
 }
 
 .footer a {
-  color: #000; /* Defina a cor desejada para os links */
-  text-decoration: none; /* Remova o sublinhado dos links */
+  color: #000;
+  /* Defina a cor desejada para os links */
+  text-decoration: none;
+  /* Remova o sublinhado dos links */
 }
 
- ul {
+ul {
   list-style: none;
   padding-left: 0;
 }
 
 .companhia-info {
   font-size: 16px;
-  font-weight: normal; /* Fonte light */
+  font-weight: normal;
+  /* Fonte light */
 }
 
 
@@ -588,7 +600,7 @@ input {
   background-image: url(../assets/imgs/luxa.org-opacity-changed-istockphoto-1464383776-612x612.jpg);
   background-repeat: no-repeat;
   background-size: 100vw;
-  
+
 }
 
 .versiculo-diario-conteudo {
@@ -616,10 +628,42 @@ input {
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s, opacity 0.3s; /* Adicionando a transição de opacidade */
-  opacity: 0.7; /* Definindo a opacidade inicial */
+  transition: background-color 0.3s, opacity 0.3s;
+  /* Adicionando a transição de opacidade */
+  opacity: 0.7;
+  /* Definindo a opacidade inicial */
 }
 
 #buttonVersiculo:hover {
   background-color: #fff2e6;
+}
+
+/* Estilos para corrigir a posição dos inputs */
+input[type="text"],
+select {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+
+/* Estilos para os botões "Anterior" e "Próximo" */
+.button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Estilo para o botão "Anterior" */
+.previous-page-button {
+  float: left;
+}
+
+/* Estilo para o botão "Próximo" */
+.next-page-button {
+  float: right;
 }
