@@ -82,29 +82,29 @@
     <!--footer inicio-->
     <div class="footer">
         <div class="container">
-          <div class="footer-left">
-            <p class="footer-title">Faith Support</p>
-            <p>Endereço:</p>
-            <p>Rua Haddock Lobo, 595 - Cerqueira César, São Paulo - SP, 01414-001</p>
-            <p>Contato:</p>
-            <p>11 9999-9999</p>
-            <p>higortupi@hotmail.com</p>
-          </div>
-          <div class="footer-middle">
-            <p class="footer-subtitle">Recursos</p>
-            <ul>
-              <li><a href="index.html">Sobre nós</a></li>
-              <li><a href="biblia.html">Bíblia Sagrada</a></li>
-              <li><a href="index.html">Versículo Diário</a></li>
-              <li><a href="index.html">Ajuda</a></li>
-            </ul>
-          </div>
-          <div class="footer-right">
-            <p class="footer-subtitle">Companhia</p>
-            <p class="companhia-info">2024 Faith Support. Todos os direitos reservados.</p>
-          </div>
+            <div class="footer-left">
+                <p class="footer-title">Faith Support</p>
+                <p>Endereço:</p>
+                <p>Rua Haddock Lobo, 595 - Cerqueira César, São Paulo - SP, 01414-001</p>
+                <p>Contato:</p>
+                <p>11 9999-9999</p>
+                <p>higortupi@hotmail.com</p>
+            </div>
+            <div class="footer-middle">
+                <p class="footer-subtitle">Recursos</p>
+                <ul>
+                    <li><a href="index.html">Sobre nós</a></li>
+                    <li><a href="biblia.html">Bíblia Sagrada</a></li>
+                    <li><a href="index.html">Versículo Diário</a></li>
+                    <li><a href="index.html">Ajuda</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <p class="footer-subtitle">Companhia</p>
+                <p class="companhia-info">2024 Faith Support. Todos os direitos reservados.</p>
+            </div>
         </div>
-      </div>
+    </div>
     <!--footer fim-->
 
 </body>
@@ -121,9 +121,7 @@
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
+            alert('Os campos com * devem ser preenchidos')
             return false;
         }
         else {
@@ -151,10 +149,9 @@
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
+                    sessionStorage.ID_USUARIO = json.idUsuario;
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
                     setTimeout(function () {
                         window.location = "./dashboard/cards.html";
