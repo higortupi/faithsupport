@@ -248,7 +248,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  color: palevioletred;
+  color: rgb(0, 0, 0);
   flex-direction: column;
   height: fit-content;
   padding: 20px 0;
@@ -273,14 +273,14 @@ ul {
 }
 
 .formulario input {
-  border: 2px solid #32b9cd;
+  border: 2px solid #000000;
   text-align: center;
   border-radius: 10px;
   margin: 0;
 }
 
 .formulario select {
-  border: 2px solid #32b9cd;
+  border: 2px solid #fcfcfc;
   background-color: white;
   color: gray;
   height: 36px;
@@ -304,7 +304,7 @@ ul {
   font-weight: 600;
   font-size: 18px;
   color: #fff;
-  background-color: #e6005a;
+  background-color: #000000;
   width: 120px;
   height: 30px;
   align-self: center;
