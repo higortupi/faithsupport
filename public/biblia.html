@@ -112,36 +112,29 @@
     let currentPage = 1;
     const versesPerPage = 10;
 
-    // Fetch dos dados da API para os livros
-    fetch(apiUrl)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Erro ao obter os dados da API.');
-        }
-        return response.json();
-      })
-      .then(data => {
-        const livrosSelect = document.getElementById('livros');
-        // Itera sobre os dados e cria as options para os livros
-        data.forEach(livro => {
-          const option = document.createElement('option');
-          option.value = livro.abbrev.pt;
-          option.textContent = livro.name;
-          livrosSelect.appendChild(option);
-        });
+    function carregarLivros() {
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Erro ao obter os dados da API.');
+          }
+          return response.json();
+        })
+        .then(data => {
+          const livrosSelect = document.getElementById('livros');
+          data.forEach(livro => {
+            const option = document.createElement('option');
+            option.value = livro.abbrev.pt;
+            option.textContent = livro.name;
+            livrosSelect.appendChild(option);
+          });
 
-        // Carregar capítulos quando o livro for selecionado
-        $('#livros').on('change', function () {
-          const livroAbbrev = this.value;
-          carregarCapitulos(livroAbbrev);
-        });
+          $('#livros').trigger('change');
+          $('.select2').select2();
+        })
+        .catch(error => console.error('Erro ao obter os dados da API:', error));
+    }
 
-        // Inicializar o Select2 para todos os selects
-        $('.select2').select2();
-      })
-      .catch(error => console.error('Erro ao obter os dados da API:', error));
-
-    // Função para carregar os capítulos
     function carregarCapitulos(livroAbbrev) {
       const capitulosSelect = document.getElementById('capitulos');
       capitulosSelect.innerHTML = '';
@@ -168,11 +161,7 @@
             capitulosSelect.appendChild(option);
           }
 
-          // Carregar versículos quando o capítulo for selecionado
-          $('#capitulos').on('change', function () {
-            const capitulo = this.value;
-            carregarVersiculos(livroAbbrev, capitulo);
-          });
+          $('#capitulos').trigger('change');
         })
         .catch(error => {
           console.error('Erro ao obter os capítulos:', error);
@@ -182,8 +171,7 @@
         });
     }
 
-    // Função para carregar os versículos
-    function carregarVersiculos(livroAbbrev, capitulo) {
+    function carregarVersiculos(livroAbbrev, capitulo, versiculoNum = null) {
       const versiculosContainer = document.getElementById('versiculos');
       versiculosContainer.innerHTML = '';
       fetch(`https://www.abibliadigital.com.br/api/verses/nvi/${livroAbbrev}/${capitulo}`, {
@@ -201,20 +189,20 @@
           return response.json();
         })
         .then(data => {
-          // Calcular o índice inicial e final dos versículos a serem exibidos na página atual
+          const filteredVerses = versiculoNum
+            ? data.verses.filter(versiculo => versiculo.number == versiculoNum)
+            : data.verses;
+
           const startIndex = (currentPage - 1) * versesPerPage;
           const endIndex = startIndex + versesPerPage;
 
-          data.verses.slice(startIndex, endIndex).forEach(versiculo => {
+          filteredVerses.slice(startIndex, endIndex).forEach(versiculo => {
             const p = document.createElement('p');
             p.textContent = `${versiculo.number}. ${versiculo.text}`;
             versiculosContainer.appendChild(p);
           });
 
-          // Verificar se há versículos suficientes para exibir a próxima página
-          const hasMoreVerses = endIndex < data.verses.length;
-
-          // Exibir ou ocultar botão de próxima página com base na condição acima
+          const hasMoreVerses = endIndex < filteredVerses.length;
           document.getElementById('next-page-button').style.display = hasMoreVerses ? 'block' : 'none';
         })
         .catch(error => {
@@ -222,23 +210,39 @@
         });
     }
 
+    $('#livros').on('change', function () {
+      const livroAbbrev = this.value;
+      carregarCapitulos(livroAbbrev);
+    });
 
-    // Adicionar evento ao botão "Próxima Página" para avançar para a próxima página de versículos
+    $('#capitulos').on('change', function () {
+      const livroAbbrev = document.getElementById('livros').value;
+      const capitulo = this.value;
+      carregarVersiculos(livroAbbrev, capitulo);
+    });
+
+    $('#versiculo').on('input', function () {
+      const livroAbbrev = document.getElementById('livros').value;
+      const capitulo = document.getElementById('capitulos').value;
+      const versiculoNum = this.value;
+      currentPage = 1;
+      carregarVersiculos(livroAbbrev, capitulo, versiculoNum);
+    });
+
     $('.next-page-button').on('click', function () {
       currentPage++;
       const livroAbbrev = document.getElementById('livros').value;
       const capitulo = document.getElementById('capitulos').value;
-      carregarVersiculos(livroAbbrev, capitulo);
+      carregarVersiculos(livroAbbrev, capitulo, $('#versiculo').val());
     });
 
-    // Adicionar evento ao botão "Página Anterior" para voltar para a página anterior de versículos
     $('.previous-page-button').on('click', function () {
       currentPage--;
       const livroAbbrev = document.getElementById('livros').value;
       const capitulo = document.getElementById('capitulos').value;
-      carregarVersiculos(livroAbbrev, capitulo);
+      carregarVersiculos(livroAbbrev, capitulo, $('#versiculo').val());
     });
+
+    carregarLivros();
   });
-
-
 </script>
