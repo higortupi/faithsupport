@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/imgs/9836117.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,21 +32,13 @@
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
 
-            <!-- <div class="btn-nav-white">
-                <a href="cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div> -->
-
-
-
             <div class="btn-nav">
                 <h3>Devocionais</h3>
             </div>
 
             <div class="btn-nav-white">
                 <a href="./dashboard.html">
-                    <h3>Progresso</h3>
+                    <h3>Perseverança</h3>
                 </a>
             </div>
 
@@ -57,8 +49,6 @@
         </div>
 
         <div class="dash-right">
-
-
             <div class="avisos">
                 <div id="alerta">
                 </div>
@@ -69,29 +59,29 @@
                             <label>
                                 Livro:
                                 <br>
-                                <input name="titulo" id="titulo" maxlength="100" type="text">
+                                <input name="titulo" id="livro" maxlength="100" type="text">
                             </label>
                             <label>
                                 Capitulo:
                                 <br>
-                                <input name="titulo" id="titulo" maxlength="100" type="text">
+                                <input name="titulo" id="capitulo" maxlength="100" type="text">
                             </label>
                             <label>
                                 Versículo:
                                 <br>
-                                <input name="titulo" id="titulo" maxlength="100" type="text">
+                                <input name="titulo" id="versiculo" maxlength="100" type="text">
                             </label>
                             <label>
-                                Oração (máximo de 250 caracteres):
+                                Oração (máximo de 450 caracteres):
                                 <br>
-                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                                <textarea name="descricao" id="oracao" maxlength="450" rows="5"></textarea>
                             </label>
                             <br>
                             <br>
                             <label>
-                                Anotação (máximo de 250 caracteres):
+                                Anotação (máximo de 450 caracteres):
                                 <br>
-                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                                <textarea name="descricao" id="anotacao" maxlength="450" rows="5"></textarea>
                             </label>
                             <br>
                             <br>
@@ -136,16 +126,21 @@
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(corpo)
+            body: JSON.stringify({
+                livroServer: livro.value,
+                capituloServer: capitulo.value,
+                versiculoServer: versiculo.value,
+                oracaoServer: oracao.value,
+                anotacaoServer: anotacao.value
+            })
         }).then(function (resposta) {
 
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                window.location = "/dashboard/mural.html";
+                window.alert("Devocional realizada com sucesso!");
+                window.location = "/dashboard/devocional.html";
                 limparFormulario();
-                finalizarAguardar();
             } else if (resposta.status == 404) {
                 window.alert("Deu 404!");
             } else {
@@ -153,7 +148,6 @@
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
         });
 
         return false;
@@ -168,9 +162,9 @@
 
     }
 
-    function deletar(idAviso) {
-        console.log("Criar função de apagar post escolhido - ID" + idAviso);
-        fetch(`/avisos/deletar/${idAviso}`, {
+    function deletar(idDevocional) {
+        // console.log("Criar função de apagar post escolhido - ID" + idAviso);
+        fetch(`/avisos/deletar/${idDevocional}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -179,7 +173,7 @@
 
             if (resposta.ok) {
                 window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                window.location = "/dashboard/mural.html"
+                window.location = "/dashboard/devocional.html"
             } else if (resposta.status == 404) {
                 window.alert("Deu 404!");
             } else {
@@ -191,7 +185,9 @@
     }
 
     function atualizarFeed() {
-        fetch("/avisos/listar").then(function (resposta) {
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/avisos/listar/${idUsuario}`).then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     var feed = document.getElementById("feed_container");
@@ -212,19 +208,28 @@
                         // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
                         var spanID = document.createElement("span");
+                        var spanLivro = document.createElement("span");
+                        var spanCapitulo = document.createElement("span");
                         var spanTitulo = document.createElement("span");
+                        var spanVersiculo = document.createElement("span");
+                        var spanOracao = document.createElement("span");
                         var spanNome = document.createElement("span");
+                        var spanDataHorario = document.createElement("span");
                         var divDescricao = document.createElement("div");
                         var divButtons = document.createElement("div");
                         var btnEditar = document.createElement("button");
                         var btnDeletar = document.createElement("button");
 
 
-                        spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
-                        spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
+                        spanID.innerHTML = "Devocional: <b>" + (i + 1) + "</b>";
+                        spanLivro.innerHTML = "Livro: <b>" + publicacao.livro + "</b>";
+                        spanCapitulo.innerHTML = "Capitulo: <b>" + publicacao.capitulo + "</b>";
+                        spanVersiculo.innerHTML = "Versículo: <b>" + publicacao.versiculo + "</b>";
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
-                        divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
-                        btnEditar.innerHTML = "Editar";
+                        divDescricao.innerHTML = "Anotação: <b>" + publicacao.anotacao + "</b>";
+                        spanOracao.innerHTML = "Oração: <b>" + publicacao.oracao + "</b>";
+                        spanDataHorario.innerHTML = "Data: <b>" + publicacao.dataHorario + "</b>";
+                        btnEditar.innerHTML = "Editar Anotação";
                         btnDeletar.innerHTML = "Deletar";
 
                         divPublicacao.className = "publicacao";
@@ -237,30 +242,34 @@
 
                         btnEditar.className = "publicacao-btn-editar"
                         btnEditar.id = "btnEditar" + publicacao.idAviso;
-                        btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
+                        btnEditar.setAttribute("onclick", `editar(${publicacao.Devocional})`);
 
                         btnDeletar.className = "publicacao-btn-editar"
                         btnDeletar.id = "btnDeletar" + publicacao.idAviso;
-                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
+                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.Devocional})`);
 
                         divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
-                        divPublicacao.appendChild(spanTitulo);
+                        divPublicacao.appendChild(spanLivro);
+                        divPublicacao.appendChild(spanCapitulo);
+                        divPublicacao.appendChild(spanVersiculo);
                         divPublicacao.appendChild(divDescricao);
+                        divPublicacao.appendChild(spanOracao);
+                        divPublicacao.appendChild(spanDataHorario);
                         divPublicacao.appendChild(divButtons);
                         divButtons.appendChild(btnEditar);
                         divButtons.appendChild(btnDeletar);
                         feed.appendChild(divPublicacao);
                     }
 
-                    finalizarAguardar();
+                    // finalizarAguardar();
                 });
             } else {
                 throw ('Houve um erro na API!');
             }
         }).catch(function (resposta) {
             console.error(resposta);
-            finalizarAguardar();
+            // finalizarAguardar();
         });
     }
 

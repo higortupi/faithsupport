@@ -667,3 +667,65 @@ select {
 .next-page-button {
   float: right;
 }
+
+/* Estilos específicos para a página de ajuda */
+.conteudocontato {
+  padding: 20px;
+}
+
+.contato {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.esquerda,
+.direita {
+  width: 48%;
+  background-color: #fff;
+  border-radius: 100px;
+  padding: 20px;
+}
+
+.imagem-contato {
+  width: 100%;
+  height: auto;
+  border-radius: 100px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+}
+
+.formulario label {
+  margin-top: 10px;
+}
+
+.formulario input,
+.formulario textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border: 2px solid #000;
+  border-radius: 10px;
+}
+
+.enviar {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.buttone {
+  padding: 10px 20px;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}

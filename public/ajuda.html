@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="../assets/imgs/9836117.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Faith Support | Ajuda</title>
+
+    <script src="./js/sessao.js"></script>
+
+    <link rel="stylesheet" href="./css/estilo.css">
+    <link rel="icon" href="../public/assets/imgs/9836117.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <style>
+        .conteudocontato {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 100px);
+            padding: 20px;
+        }
+
+        .contato {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .tituloh2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .pcontato {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .formulario {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .formulario label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+            width: 100%;
+            text-align: left;
+            margin-left: 70px;
+        }
+
+        .formulario input,
+        .formulario textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            margin-left: 100px;
+        }
+
+        .formulario textarea {
+            resize: none;
+        }
+
+        .enviar {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .buttone {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
+            margin-left: 50px;
+        }
+
+        .buttone:hover {
+            background-color: #0056b3;
+        }
+
+        #mensagem1 {
+            display: none;
+            margin-bottom: 10px;
+        }
+
+        #mensagem_enviado {
+            display: none;
+            color: green;
+            margin-top: 20px;
+        }
+
+        #mensagem_erro {
+            display: none;
+            color: red;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <a href="index.html">
+                <h1 class="titulo">Faith Support</h1>
+            </a>
+            <ul class="navbar">
+                <li class="agora">
+                    <a href="#sobre-nos">Sobre nós</a>
+                </li>
+                <li class="agora">
+                    <a href="#versiculo-diario">Versículo diário</a>
+                </li>
+                <li class="agora">
+                    <a href="ajuda.html">Ajuda</a>
+                </li>
+                <li>
+                    <a href="biblia.html">Bíblia Sagrada</a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a href="login.html" id="btn-login">Login</a>
+                </li>
+                <li>
+                    <a href="cadastro.html" id="btn-cadastrar">Cadastrar-se</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="conteudocontato">
+        <div class="contato">
+            <h2 class="tituloh2">Entre em Contato:</h2>
+            <p class="pcontato">Entre em contato conosco hoje mesmo para saber mais sobre como podemos ajudá-lo</p>
+            <div class="formulario">
+                <span id="mensagem1">PREENCHA TODOS OS CAMPOS</span>
+                <label for="name">Nome:</label>
+                <input type="text" id="nome_input" name="name" placeholder="Insira seu nome" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email_input" name="email" placeholder="Insira seu email" required>
+
+                <label for="message">Mensagem:</label>
+                <textarea id="message_input" name="message" rows="4" placeholder="Escreva aqui sua mensagem..." required
+                    maxlength="280"></textarea>
+                <div class="enviar">
+                    <button class="buttone" onclick="mensagem()">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="footer-left">
+                <p class="footer-title">Faith Support</p>
+                <p>Endereço:</p>
+                <p>Rua Haddock Lobo, 595 - Cerqueira César, São Paulo - SP, 01414-001</p>
+                <p>Contato:</p>
+                <p>11 9999-9999</p>
+                <p>higortupi@hotmail.com</p>
+            </div>
+            <div class="footer-middle">
+                <p class="footer-subtitle">Recursos</p>
+                <ul>
+                    <li><a href="index.html">Sobre nós</a></li>
+                    <li><a href="biblia.html">Bíblia Sagrada</a></li>
+                    <li><a href="index.html">Versículo Diário</a></li>
+                    <li><a href="index.html">Ajuda</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <p class="footer-subtitle">Companhia</p>
+                <p class="companhia-info">2024 Faith Support. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function mensagem() {
+            var nomeV = nome_input.value;
+            var emailV = email_input.value;
+            var messageV = message_input.value;
+
+            if (nomeV == "" || emailV == "" || messageV == "") {
+                mensagem1.style.display = "block";
+                mensagem1.style.color = 'red';
+                mensagem1.innerHTML = 'PREENCHA TODOS OS CAMPOS!';
+            } else if (emailV.indexOf("@") == -1 || emailV.indexOf(".") == -1) {
+                mensagem1.style.display = "block";
+                mensagem1.style.color = 'red';
+                mensagem1.innerHTML = "O EMAIL DEVE CONTER @ E .";
+            } else {
+                fetch("/usuarios/mensagem", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        nomeServer: nomeV,
+                        emailServer: emailV,
+                        messageServer: messageV
+                    }),
+                }).then(function (resposta) {
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+                        mensagem1.style.display = "block";
+                        mensagem1.style.color = 'green';
+                        mensagem1.innerHTML = 'Mensagem Enviada!';
+
+                        nome_input.value = "";
+                        email_input.value = "";
+                        message_input.value = "";
+                    } else {
+                        throw "Houve um erro ao tentar entrar em contato!";
+                    }
+                })
+                    .catch(function (resposta) {
+                        console.log(`#ERRO: ${resposta}`);
+                    });
+
+                return false;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
