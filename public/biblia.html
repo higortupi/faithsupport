@@ -43,8 +43,6 @@
       </ul>
     </div>
   </div>
-  <!-- simulador inicio -->
-  <!-- Adicione uma div para conter os versículos com uma classe "versiculos-container" -->
   <div class="simulador">
     <div class="container">
       <h2>Bíblia Sagrada</h2>
@@ -54,9 +52,9 @@
       <select id="capitulos" class="select2"></select>
       <p>Selecione o versículo</p>
       <input type="number" id="versiculo" min="1">
-      <!-- Adicione uma div para conter os versículos com uma classe "versiculos-container" -->
+    
       <div id="versiculos" class="versiculos-container"></div>
-      <!-- Adicione botões de navegação entre as páginas de versículos -->
+    
       <div id="pagination-buttons" class="clearfix">
         <button class="button previous-page-button">Anterior</button>
         <button class="button next-page-button">Próximo</button>
@@ -65,7 +63,6 @@
     </div>
   </div>
 
-  <!-- simulador fim -->
   <!--footer inicio-->
   <div class="footer">
     <div class="container">
@@ -121,6 +118,7 @@
           return response.json();
         })
         .then(data => {
+          console.log(data)
           const livrosSelect = document.getElementById('livros');
           data.forEach(livro => {
             const option = document.createElement('option');
