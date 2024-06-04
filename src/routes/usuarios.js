@@ -16,5 +16,12 @@ router.post("/mensagem", function (req, res) {
     usuarioController.mensagem(req, res);
 })
 
+router.post("/conexao", function (req, res) {
+    usuarioController.conexao(req, res);
+})
+
+router.post("/feedback", function (req, res) {
+    usuarioController.feedback(req, res);
+});
 
 module.exports = router;

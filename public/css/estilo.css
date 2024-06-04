@@ -526,13 +526,13 @@ input {
 
 
 
-.texto-esquerda {
+/* .texto-esquerda {
   text-align: right;
-}
+} */
 
-.texto-direita {
+/* .texto-direita {
   text-align: left;
-}
+} */
 
 
 
@@ -685,13 +685,13 @@ select {
   align-items: flex-start;
 }
 
-.esquerda,
+/* .esquerda,
 .direita {
   width: 48%;
   background-color: #fff;
   border-radius: 100px;
   padding: 20px;
-}
+} */
 
 .imagem-contato {
   width: 100%;

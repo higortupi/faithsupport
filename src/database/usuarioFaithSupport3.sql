@@ -46,20 +46,26 @@ mensagem varchar(450)
 );
 
 create table associativaFeedback(
-fkUsuario int,
 fkFeedback int auto_increment,
+fkUsuario int,
 constraint pkComposta primary key(fkUsuario,fkFeedback),
-foreign key (fkUsuario) references usuario(id),
 foreign key (fkFeedback) references feedback(idFeedback),
+foreign key (fkUsuario) references usuario(id),
 dtFeedback datetime
 );
 
-drop table associativaFeedback;
+drop table feedback;
+drop table associativafeedback;
+
 select * from contato;
 
 select * from usuario;
 
 select * from devocional;
+
+select * from feedback;
+
+select * from associativaFeedback;
 
 SELECT DATE(dataHorario) AS data, COUNT(*) AS total_devocionais
 FROM devocional

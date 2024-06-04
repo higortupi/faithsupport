@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/imgs/9836117.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaithSupport | Perseverança</title>
+
+    <link rel="stylesheet" href="./../css/dashboards.css">
+    <link rel="stylesheet" href="./../css/estilo.css" />
+    <script src="../js/sessao.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 80%;
+        margin: 0;
+        background-color: #1e1e1e;
+        color: #fff;
+
+    }
+
+    .conteudocontato {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        width: 100%;
+        max-width: 1000px;
+        margin-left: 80px;
+    }
+
+    .contato {
+        width: 100%;
+        background-color: #2c2c2c;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .tituloh2 {
+        text-align: center;
+        color: #fff;
+    }
+
+    .pcontato {
+        text-align: center;
+        color: #aaa;
+        margin-bottom: 20px;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .esquerda {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .direita {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .formulario {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .formulario label {
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .dadosUsuario {
+        background-color: #3a3a3a;
+        border: 1px solid #555;
+        border-radius: 5px;
+        padding: 5px 10px;
+        color: #fff;
+        margin-bottom: 10px;
+    }
+
+    #tipoFeedback,
+    #message_input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #555;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        background-color: #3a3a3a;
+        color: #fff;
+    }
+
+    .enviar {
+        text-align: center;
+    }
+
+    .enviar input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .enviar input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+</style>
+
+<body onload="dadosU()">
+    <div class="janela">
+        <div class="header-left">
+            <h1>FaithSupport</h1>
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+            <div class="btn-nav-white">
+                <a href="./feedback.html">
+                    <h3>Feedback</h3>
+                </a>
+            </div>
+            <div class="btn-nav">
+                <a href="dashboard.html">
+                    <h3>Perseverança</h3>
+                </a>
+            </div>
+            <div class="btn-nav">
+                <a href="./devocional.html">
+                    <h3>Devocionais</h3>
+                </a>
+            </div>
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+        </div>
+    </div>
+    <div class="dash-right">
+        <div class="conteudocontato">
+            <div class="contato">
+                <h2 class="tituloh2">Deixe seu Feedback!</h2>
+
+                <p class="pcontato">Ajude-nos a melhorar a nossa plataforma com o seu feedback!</p>
+                <div class="form">
+                    <div class="esquerda">
+                        <span id="mensagem1"></span>
+                        <img src="../assets/imgs/9836117.png" width="400px" height="300px" alt="">
+                    </div>
+                    <div class="direita">
+                        <div class="formulario">
+                            <label for="name">Nome:</label>
+                            <span class="dadosUsuario" id="nomeUsuario"></span>
+
+                            <label for="email">Email:</label>
+                            <span class="dadosUsuario" id="emailUsuario"></span>
+
+                            <label for="feedback">Tipo do Feedback:</label>
+                            <select id="tipoFeedback">
+                                <option value="#">Selecione um tipo de feedback</option>
+                                <option value="Manutenção">Manutenção</option>
+                                <option value="Construção">Construção</option>
+
+                            </select>
+                            <label for="message">Mensagem:</label>
+                            <textarea id="message_input" name="message" rows="4"
+                                placeholder="Escreva aqui sua mensagem..." required></textarea>
+
+                            <div class="enviar">
+                                <input type="submit" value="Enviar" onclick="feedback(), conexao()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    function dadosU() {
+        nomeUsuario.innerHTML = nomeUser
+        emailUsuario.innerHTML = emailUser
+    }
+
+
+    const nomeUser = sessionStorage.NOME_USUARIO;
+    const idUser = sessionStorage.ID_USUARIO;
+    const emailUser = sessionStorage.EMAIL_USUARIO;
+
+
+    function feedback() {
+        var nomeV = nomeUser;
+        var emailV = emailUser;
+        var tipoV = tipoFeedback.value;
+        var messageV = message_input.value;
+
+        if (nomeV == undefined ||
+            emailV == undefined) {
+            mensagem1.style.display = "block";
+            mensagem1.style.color = 'red';
+            mensagem1.innerHTML = 'LOGUE PARA ENVIAR FEEDBACK!';
+        } else if (
+            tipoV == "#" ||
+            messageV == ""
+        ) {
+            mensagem1.style.display = "block";
+            mensagem1.style.color = 'red';
+            mensagem1.innerHTML = 'PREENCHA TODOS OS CAMPOS!';
+        } else { // Enviando o valor da nova input
+            fetch("/usuarios/feedback", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nomeV,
+                    emailServer: emailV,
+                    tipoServer: tipoV,
+                    messageServer: messageV
+
+                }),
+            }).then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    mensagem1.style.display = "block";
+                    mensagem1.style.color = 'green';
+                    mensagem1.innerHTML = 'Mensagem Enviada!'
+
+                    tipoFeedback.value = "#"
+                    message_input.value = ""
+                } else {
+                    throw "Houve um erro ao enviar feedback!";
+                }
+            })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+
+            return false; // Adicione isso para cancelar a submissão do formulário
+        }
+    }
+
+    function conexao() {
+        var idV = idUser;
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/conexao", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                idServer: idV,
+
+
+            }),
+        }).then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+        })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+        return false; // Adicione isso para cancelar a submissão do formulário
+    }
+
+
+</script>
